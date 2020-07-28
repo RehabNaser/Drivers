@@ -14,27 +14,6 @@
 #include "MC_REGISTERS.h"
 #include "GPIO.h"
 
-//INTERRUPTS TYPES
-#define INT_INT0 0
-#define INT_INT1 1
-#define INT_INT2 2
-#define INT_TIMER2_COMP 3
-#define INT_TIMER2_OVF 4
-#define INT_TIMER1_CAPT 5
-#define INT_TIMER1_COMPA 6
-#define INT_TIMER1_COMPB 7
-#define INT_TIMER1_OVF 8
-#define INT_TIMER0_COMP 9
-#define INT_TIMER0_OVF 10
-#define INT_SPI 11
-#define INT_USART_RXC 12
-#define INT_USART_UDRE 13
-#define INT_USART_TXC 14
-#define INT_ADC 15
-#define INT_EERDY 16
-#define INT_ANA_COMP 17
-#define INT_TWI 18
-
 //EXTERNAL INTERRUPTS NUMBERS
 #define INTN0 0
 #define INTN1 1
