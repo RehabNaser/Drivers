@@ -28,10 +28,12 @@
 //GENERAL REGISTERS
 #define SFIOR *((volatile uint8*)(0X50))
 #define SREG *((volatile uint8*)(0X5F))
+#define MCUCSR *((volatile uint8*)(0X54))
 
 
 #define SF_IOR SFIOR
 #define S_REG SREG
+#define MCUCS_R MCUCSR
 //SF_IOR REGISTER BITS
 #define ACME BIT3
 #define ADTS0 BIT5
@@ -39,6 +41,12 @@
 #define ADTS2 BIT7
 //S_REG REGISTER BITS
 #define I BIT7
+//MCUCS_R REGISTER BITS
+#define PORF BIT0
+#define EXTRF BIT1
+#define BORF BIT2
+#define WDRF BIT3
+#define JTRF BIT4
 /************************************************************************/
 /*                         GPIO REGISTERS                               */
 /************************************************************************/
@@ -143,6 +151,20 @@
 #define ISC11 BIT3
 //MCUCS_R REGISTER BITS
 #define ISC2 BIT6
+/************************************************************************/
+/*                      WATCHDOG TIMER REGISTERS                        */
+/************************************************************************/
+//WATCHDOG TIMER REGISTERS  
+#define WDTCR *((volatile uint8*)(0X41))
+
+
+#define WDTC_R WDTCR
+//WDTC_R REGISTER BITS
+#define WDP0 BIT0
+#define WDP1 BIT1
+#define WDP2 BIT2
+#define WDE BIT3
+#define WDTOE BIT4
 /************************************************************************/
 /*                         GENERAL TIMERS REGISTERS                     */
 /************************************************************************/
