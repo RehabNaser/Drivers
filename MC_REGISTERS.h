@@ -201,9 +201,17 @@
 /*                         EEPROM REGISTERS                             */
 /************************************************************************/
 //EEPROM REGISTERS
+#define EEARH *((volatile uint8*)(0X3F))
+#define EEARL *((volatile uint8*)(0X3E))
+#define EEAR *((volatile uint16*)(0X3E))
+#define EEDR *((volatile uint8*)(0X3D))
 #define EECR *((volatile uint8*)(0X3C))
 
 
+#define EEAR_H EEARH
+#define EEAR_L EEARL
+#define EEA_R EEAR
+#define EED_R EEDR
 #define EEC_R EECR
 //EEC_R REGISTER BITS
 #define EERE BIT0

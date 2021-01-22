@@ -75,10 +75,6 @@ void TWIInterruptInit(void);
 void TWIInterruptEnable(void);
 void TWIInterruptDisable(void);
 
-void EEPROMInterruptInit(void);
-void EEPROMInterruptEnable(void);
-void EEPROMInterruptDisable(void);
-
 void USARTInterruptInit(uint8 USARTIntType);
 void USARTInterruptEnable(uint8 USARTIntType);
 void USARTInterruptDisable(uint8 USARTIntType);

@@ -307,22 +307,6 @@ void TWIInterruptDisable(void)
 	BIT_WRITE(TWC_R,TWIE,BIT_LOW);	
 }
 
-void EEPROMInterruptInit(void)
-{
-	EEPROMInterruptEnable();
-	GlobalInterruptEnable();
-}
-
-void EEPROMInterruptEnable(void)
-{
-	BIT_WRITE(EEC_R,EERIE,BIT_HIGH);	
-}
-
-void EEPROMInterruptDisable(void)
-{
-	BIT_WRITE(EEC_R,EERIE,BIT_LOW);	
-}
-
 void USARTInterruptInit(uint8 USARTIntType)
 {
 	USARTInterruptEnable(USARTIntType);
