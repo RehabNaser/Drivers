@@ -18,31 +18,28 @@
 #define INTN0 0
 #define INTN1 1
 #define INTN2 2
+
 //EXTERNAL INTERRUPTS PORTS
 #define INT0_PORT PORT_D
 #define INT1_PORT PORT_D
 #define INT2_PORT PORT_B
+
 //EXTERNAL INTERRUPTS PINS
 #define INT0_PIN PIN2
 #define INT1_PIN PIN3
 #define INT2_PIN PIN2
+
 //EXTERNAL INTERRUPTS MODES
 #define LOW_LEVEL 0
 #define LOGICAL_CHANGE 1
 #define FALLING_EDGE 2
 #define RISING_EDGE 3
+
 //EXTERNAL INTERRUPTS PINS CONNECTION MODE
 #define PULLDOWN 0
 #define PULLUP_HW 1
 #define PULLUP_SW 2
 
-//TIMER NUMBERS
-#define TIMER0 0
-#define TIMER1 1
-#define TIMER2 2
-//TIMER0 & TIMER2 INTERRUPTS TYPES
-#define COMPARE 0
-#define OVERFLOW 1
 //TIMER1 INTERRUPTS TYPES
 #define CAPTURE 0
 #define OVERFLOW 1
@@ -62,10 +59,6 @@ void ExternalInterruptInit(uint8 ExternalIntNum,uint8 ExternalIntMode,uint8 Exte
 void ExternalInterruptEnable(uint8 ExternalIntNum);
 void ExternalInterruptDisable(uint8 ExternalIntNum);
 void ExternalInterruptMode(uint8 ExternalIntNum,uint8 ExternalIntMode);
-
-void TimerInterruptInit(uint8 TimerNum,uint8 TimerIntType);
-void TimerInterruptEnable(uint8 TimerNum,uint8 TimerIntType);
-void TimerInterruptDisable(uint8 TimerNum,uint8 TimerIntType);
 
 void SPIInterruptInit(void);
 void SPIInterruptEnable(void);
