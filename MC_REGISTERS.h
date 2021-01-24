@@ -170,9 +170,10 @@
 /************************************************************************/
 //GENERAL TIMERS REGISTERS
 #define TIMSK *((volatile uint8*)(0X59))
-
+#define TIFR *((volatile uint8*)(0X58))
 
 #define TIMSK_R TIMSK
+#define TIF_R TIFR
 //TIMSK_R REGISTER BITS
 #define TOIE0 BIT0
 #define OCIE0 BIT1
@@ -182,11 +183,35 @@
 #define TICIE1 BIT5
 #define TOIE2 BIT6
 #define OCIE2 BIT7
+//TIF_R REGISTER BITS
+#define TOV0 BIT0
+#define OCF0 BIT1
+#define TOV1 BIT2
+#define OCF1B BIT3
+#define OCF1A BIT4
+#define ICF1 BIT5
+#define TOV2 BIT6
+#define OCF2 BIT7
 /************************************************************************/
 /*                         TIMER0 REGISTERS                             */
 /************************************************************************/
-//#define 
+//TIMER0 REGISTERS 
+#define TCCR0 *((volatile uint8*)(0X53))
+#define TCNT0 *((volatile uint8*)(0X52))
+#define OCR0 *((volatile uint8*)(0X5C))
 
+#define TCCR_0 TCCR0 
+#define TCNT_0 TCNT0
+#define OCR_0 OCR0
+//TCCR_0 REGISTER BITS
+#define CS00 BIT0
+#define CS01 BIT1
+#define CS02 BIT2
+#define WGM01 BIT3
+#define COM00 BIT4
+#define COM01 BIT5
+#define WGM00 BIT6
+#define FOC0 BIT7
 /************************************************************************/
 /*                         TIMER1 REGISTERS                             */
 /************************************************************************/
