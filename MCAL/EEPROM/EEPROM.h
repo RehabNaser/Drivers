@@ -15,8 +15,8 @@
 #include "INTERRUPT.h"
 
 //FUNCTIONS PROTOTYPES
-void EEPROMWriteData(uint16,uint8);
-uint8 EEPROMReadData(uint16);
+void EEPROMWriteData(uint16 Address,uint8 Data);
+uint8 EEPROMReadData(uint16 Address);
 
 void EEPROMInterruptInit(void);
 void EEPROMInterruptEnable(void);

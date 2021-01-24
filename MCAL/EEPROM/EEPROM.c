@@ -6,6 +6,7 @@
  */ 
  
 #include "EEPROM.h"
+
 void EEPROMWriteData(uint16 Address,uint8 Data)
 {
 	while(BIT_GET(EEC_R,EEWE));
@@ -20,7 +21,7 @@ uint8 EEPROMReadData(uint16 Address)
 	while(BIT_GET(EEC_R,EEWE));
 	REG_WRITE(EEA_R,Address);
 	BIT_WRITE(EEC_R,EERE,BIT_HIGH);
-	return EED_R;	
+	return REG_GET(EED_R);	
 }
  
 void EEPROMInterruptInit(void)
