@@ -96,6 +96,7 @@
 //ADC REGISTERS
 #define ADCL *((volatile uint8*)(0X24))
 #define ADCH *((volatile uint8*)(0X25))
+#define ADC *((volatile uint16*)(0X24))
 #define ADCSRA *((volatile uint8*)(0X26))
 #define ADMUX *((volatile uint8*)(0X27))
 
