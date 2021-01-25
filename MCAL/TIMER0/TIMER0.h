@@ -57,16 +57,18 @@
 void Timer0Init(uint8 Timer0OperationMode,uint8 Timer0ClkSource,uint8 Timer0CompareValue);
 void Timer0SelectOperationMode(uint8 Timer0OperationMode,uint8 Timer0CompareValue);
 void Timer0SelectClkSource(uint8 Timer0ClkSource);
-void Timer0SelectCompareMatchOutputMode(uint8 Timer0WaveGeneratedMode);
+void Timer0SelectCompareMatchOutputWaveMode(uint8 Timer0WaveGeneratedMode);
 void Timer0SetCompareValue(uint8 Timer0CompareValue);
 
 void Timer0Delay_ms(float32 Delay_ms,uint16 PrescalerValue);//Delay In msec,CTC Mode,Internal CLK
-uint32 Timer0Delay_sec(float32 Delay_sec,uint8 Timer0CompareValue,uint16 PrescalerValue);//Delay In sec,CTC Mode,Internal CLK
+uint32 Timer0Delay_sec_CTC(float32 Delay_sec,uint8 Timer0CompareValue,uint16 PrescalerValue);//Delay In sec,CTC Mode,Internal CLK
+uint32 Timer0Delay_sec_Normal(float32 Delay_sec,uint16 PrescalerValue);//Delay In sec,Normal Mode/Fast PWM Mode,Internal CLK
 
 void Timer0SetOutputWaveFrequency_HZ(uint32 Frequency_HZ,uint16 PrescalerValue);//Frequency In HZ,CTC Mode,Internal CLK
 
 void Timer0SetOutputWaveDutyCycle(uint8 DutyCycle);//Fast PWM Mode/Phase Correct PWM Mode,Non Inverting
 void Timer0AnalogWrite(float32 VoltageValue);
+uint8 Timer0ReturnDutyOfAnalogWrite(float32 VoltageValue);
 
 uint8 Timer0CountExternalEvent(void);
 

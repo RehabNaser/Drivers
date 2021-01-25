@@ -44,7 +44,7 @@ void Timer0SelectClkSource(uint8 Timer0ClkSource)
 	THREE_BITS_WRITE(TCCR_0,CS00,Timer0ClkSource);
 }
 
-void Timer0SelectCompareMatchOutputMode(uint8 Timer0WaveGeneratedMode)
+void Timer0SelectCompareMatchOutputWaveMode(uint8 Timer0WaveGeneratedMode)
 {
 	TWO_BITS_WRITE(TCCR_0,COM00,Timer0WaveGeneratedMode);
 }
@@ -72,12 +72,22 @@ void Timer0Delay_ms(float32 Delay_ms,uint16 PrescalerValue)
 
 //Delay In sec,CTC Mode,Internal CLK
 //Recommended using Timer0CompareValue=255,PrescalerValue=1024
-uint32 Timer0Delay_sec(float32 Delay_sec,uint8 Timer0CompareValue,uint16 PrescalerValue)
+uint32 Timer0Delay_sec_CTC(float32 Delay_sec,uint8 Timer0CompareValue,uint16 PrescalerValue)
 {
 	uint32 NumberOfCompareMatch;
 	float32 TimeOfOneCompareMatch=((float32)(Timer0CompareValue+1)*PrescalerValue)/F_CPU;
 	NumberOfCompareMatch=(uint32)(Delay_sec/TimeOfOneCompareMatch);
 	return NumberOfCompareMatch;
+}
+
+//Delay In sec,Normal Mode/Fast PWM Mode,Internal CLK
+//Recommended using PrescalerValue=1024
+uint32 Timer0Delay_sec_Normal(float32 Delay_sec,uint16 PrescalerValue)
+{
+	uint32 NumberOfOverflow;
+	float32 TimeOfOneOverflow=(256.0*PrescalerValue)/F_CPU;
+	NumberOfOverflow=(uint32)(Delay_sec/TimeOfOneOverflow);
+	return NumberOfOverflow;
 }
 
 //Frequency In HZ,CTC Mode,Internal CLK
@@ -97,6 +107,7 @@ void Timer0SetOutputWaveFrequency_HZ(uint32 Frequency_HZ,uint16 PrescalerValue)
 }
 
 //Fast PWM Mode/Phase Correct PWM Mode,Non Inverting
+//DutyCycle Range from 1-->100
 void Timer0SetOutputWaveDutyCycle(uint8 DutyCycle)
 {
 	uint8 Timer0CompareValue;
@@ -111,6 +122,13 @@ void Timer0AnalogWrite(float32 VoltageValue)
 	Timer0SetOutputWaveDutyCycle(DutyCycle);
 }
 
+uint8 Timer0ReturnDutyOfAnalogWrite(float32 VoltageValue)
+{
+	uint8 DutyCycle;
+	DutyCycle=(uint8)((VoltageValue/5.0)*100);
+	return DutyCycle;
+}
+
 uint8 Timer0CountExternalEvent(void)
 {
 	return REG_GET(TCNT_0);
@@ -119,6 +137,7 @@ uint8 Timer0CountExternalEvent(void)
 void Timer0SetOutputWavePin(void)
 {
 	GpioPinDirection(OC0_PORT,OC0_PIN,OUTPUT);
+	GpioPinWrite(OC0_PORT,OC0_PIN,LOW);	
 }
 
 void Timer0SetExternalClkPin(void)
