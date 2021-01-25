@@ -49,16 +49,16 @@
 #define FREE_RUNNING_MODE 0
 #define ANALOG_COMPARATOR 1
 #define EXTERNAL_INTERRUPT_REQUEST 2
-#define TIMER0_COMPARE_MATCH 3
-#define TIMER0_OVERFLOW 4
-#define TIMER1_COMPARE_MATCH 5
-#define TIMER1_OVERFLOW 6
-#define TIMER1_CAPTURE_EVENT 7
+#define TIMER_0_COMPARE_MATCH 3
+#define TIMER_0_OVERFLOW 4
+#define TIMER_1_COMPARE_MATCH 5
+#define TIMER_1_OVERFLOW 6
+#define TIMER_1_CAPTURE_EVENT 7
 
 //FUNCTIONS PROTOTYPES
 void ADCInit(void);
-void ADCInitCustomSingleConversionMode(uint8 ADCPreScaler,uint8 ADCAnalogPin,uint8 ADCRefVol);
-void ADCInitCustomAutoTriggerConversionMode(uint8 ADCAnalogPin,uint8 ADCPreScaler,uint8 ADCRefVol,uint8 ADCAutoTriggerSource);
+void ADCCustomInitSingleConversionMode(uint8 ADCPreScaler,uint8 ADCAnalogPin,uint8 ADCRefVol);
+void ADCCustomInitAutoTriggerConversionMode(uint8 ADCAnalogPin,uint8 ADCPreScaler,uint8 ADCRefVol,uint8 ADCAutoTriggerSource);
 
 void ADCEnable(void);
 void ADCDisable(void);
@@ -72,6 +72,8 @@ void ADCAutoTriggerConversionDisable(void);
 void ADCSingleConversionStart(void);
 void ADCFreeRunningModeConversionStart(void);
 
+void ADCSingleConversionStartPin(uint8 ADCAnalogPin);
+
 uint16 ADCData(void);
 uint16 ADCSingleConversionRead(void);//
 uint16 ADCAutoTriggerConversionRead(void);
@@ -81,7 +83,7 @@ uint16 ADCSingleConversionReadPin(uint8 ADCAnalogPin);
 uint16 ADCAutoTriggerConversionReadPin(uint8 ADCAnalogPin);
 uint16 ADCFreeRunningModeConversionReadPin(uint8 ADCAnalogPin);
 
-float32 ConvertReadingFromDigitalToAnalog(uint16,uint8);
+float32 ConvertReadingFromDigitalToAnalog(uint16 ADC_DigitalData,uint8 ADCRefVol);
 float32 ADCSingleConversionConvertReadingFromDigitalToAnalogAvcc(void);//
 float32 ADCAutoTriggerConversionConvertReadingFromDigitalToAnalogAvcc(void);
 float32 ADCFreeRunningModeConversionConvertReadingFromDigitalToAnalogAvcc(void);

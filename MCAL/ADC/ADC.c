@@ -15,7 +15,7 @@ void ADCInit(void)
 	ADCEnable();
 }
 
-void ADCInitCustomSingleConversionMode(uint8 ADCPreScaler,uint8 ADCAnalogPin,uint8 ADCRefVol)
+void ADCCustomInitSingleConversionMode(uint8 ADCPreScaler,uint8 ADCAnalogPin,uint8 ADCRefVol)
 {
 	ADCSelectPin(ADCAnalogPin);
 	ADCSelectVref(ADCRefVol);
@@ -23,7 +23,7 @@ void ADCInitCustomSingleConversionMode(uint8 ADCPreScaler,uint8 ADCAnalogPin,uin
 	ADCEnable();
 }
 
-void ADCInitCustomAutoTriggerConversionMode(uint8 ADCAnalogPin,uint8 ADCPreScaler,uint8 ADCRefVol,uint8 ADCAutoTriggerSource)
+void ADCCustomInitAutoTriggerConversionMode(uint8 ADCAnalogPin,uint8 ADCPreScaler,uint8 ADCRefVol,uint8 ADCAutoTriggerSource)
 {
 	ADCSelectPin(ADCAnalogPin);
 	ADCSelectVref(ADCRefVol);
@@ -79,15 +79,15 @@ void ADCFreeRunningModeConversionStart(void)
 	ADCSingleConversionStart();	
 }
 
+void ADCSingleConversionStartPin(uint8 ADCAnalogPin)
+{
+	ADCSelectPin(ADCAnalogPin);
+	ADCSingleConversionStart();
+}
+
 uint16 ADCData(void)
 {
-	uint8 ADCL_Data;
-	uint8 ADCH_Data;
-	uint16 ADC_Data;
-	ADCL_Data=ADC_L;
-	ADCH_Data=ADC_H;
-	ADC_Data=((ADCH_Data<<8)|ADCL_Data);
-	return ADC_Data;	
+	return REG_GET(ADC);	
 }
 
 uint16 ADCSingleConversionRead(void)
