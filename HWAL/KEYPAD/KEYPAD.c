@@ -58,11 +58,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioHigherNibbleWrite(KEYPAD_PORT,HIGHER_NIBBLE_LOW);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,HIGH);
-					_delay_ms(20);
 					Row=GpioHigherNibbleRead(KEYPAD_PORT);
 					if(Row!=HIGHER_NIBBLE_LOW)
 					{
-						while(GpioHigherNibbleRead(KEYPAD_PORT)!=HIGHER_NIBBLE_LOW);
 						break;
 					}
 				}
@@ -76,11 +74,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioHigherNibbleWrite(KEYPAD_PORT,HIGHER_NIBBLE_HIGH);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,LOW);
-					_delay_ms(20);
 					Row=GpioHigherNibbleRead(KEYPAD_PORT);
 					if(Row!=HIGHER_NIBBLE_HIGH)
 					{
-						while(GpioHigherNibbleRead(KEYPAD_PORT)!=HIGHER_NIBBLE_HIGH);
 						break;
 					}
 				}
@@ -96,11 +92,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioHigherNibbleWrite(KEYPAD_PORT,HIGHER_NIBBLE_LOW);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,HIGH);
-					_delay_ms(20);
 					Row=GpioLowerNibbleRead(KEYPAD_PORT);
 					if(Row!=LOWER_NIBBLE_LOW)
 					{
-						while(GpioLowerNibbleRead(KEYPAD_PORT)!=LOWER_NIBBLE_LOW);
 						break;
 					}
 				}
@@ -114,11 +108,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioHigherNibbleWrite(KEYPAD_PORT,HIGHER_NIBBLE_HIGH);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,LOW);
-					_delay_ms(20);
 					Row=GpioLowerNibbleRead(KEYPAD_PORT);
 					if(Row!=LOWER_NIBBLE_HIGH)
 					{	
-						while(GpioLowerNibbleRead(KEYPAD_PORT)!=LOWER_NIBBLE_HIGH);
 						break;
 					}							
 				}
@@ -136,11 +128,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioLowerNibbleWrite(KEYPAD_PORT,LOWER_NIBBLE_LOW);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,HIGH);
-					_delay_ms(20);
 					Row=GpioHigherNibbleRead(KEYPAD_PORT);
 					if(Row!=HIGHER_NIBBLE_LOW)
 					{
-						while(GpioHigherNibbleRead(KEYPAD_PORT)!=HIGHER_NIBBLE_LOW);
 						break;
 					}
 				}
@@ -154,11 +144,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioLowerNibbleWrite(KEYPAD_PORT,LOWER_NIBBLE_HIGH);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,LOW);
-					_delay_ms(20);
 					Row=GpioHigherNibbleRead(KEYPAD_PORT);
 					if(Row!=HIGHER_NIBBLE_HIGH)
 					{
-						while(GpioHigherNibbleRead(KEYPAD_PORT)!=HIGHER_NIBBLE_HIGH);
 						break;
 					}
 				}
@@ -174,11 +162,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioLowerNibbleWrite(KEYPAD_PORT,LOWER_NIBBLE_LOW);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,HIGH);
-					_delay_ms(20);
 					Row=GpioLowerNibbleRead(KEYPAD_PORT);
 					if(Row!=LOWER_NIBBLE_LOW)
 					{
-						while(GpioLowerNibbleRead(KEYPAD_PORT)!=LOWER_NIBBLE_LOW);
 						break;
 					}
 				}
@@ -192,11 +178,9 @@ uint8 KeypadReadKey(void)
 				{
 					GpioLowerNibbleWrite(KEYPAD_PORT,LOWER_NIBBLE_HIGH);
 					GpioPinWrite(KEYPAD_PORT,Col+KEYPAD_COLUMNPINS,LOW);
-					_delay_ms(20);
 					Row=GpioLowerNibbleRead(KEYPAD_PORT);
 					if(Row!=LOWER_NIBBLE_HIGH)
 					{
-						while(GpioLowerNibbleRead(KEYPAD_PORT)!=LOWER_NIBBLE_HIGH);
 						break;
 					}
 				}
