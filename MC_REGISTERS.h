@@ -173,6 +173,7 @@
 #define TIMSK *((volatile uint8*)(0X59))
 #define TIFR *((volatile uint8*)(0X58))
 
+
 #define TIMSK_R TIMSK
 #define TIF_R TIFR
 //TIMSK_R REGISTER BITS
@@ -200,6 +201,7 @@
 #define TCCR0 *((volatile uint8*)(0X53))
 #define TCNT0 *((volatile uint8*)(0X52))
 #define OCR0 *((volatile uint8*)(0X5C))
+
 
 #define TCCR_0 TCCR0 
 #define TCNT_0 TCNT0
@@ -248,14 +250,46 @@
 /*                          USART REGISTERS                             */
 /************************************************************************/
 //USART REGISTERS
+#define UDR *((volatile uint8*)(0X2C))
+#define UCSRA *((volatile uint8*)(0X2B))
 #define UCSRB *((volatile uint8*)(0X2A))
+#define UCSRC *((volatile uint8*)(0X40))
+#define UBRRL *((volatile uint8*)(0X29))
+#define UBRRH *((volatile uint8*)(0X40))
 
-
+#define UD_R UDR
+#define UCS_RA UCSRA
 #define UCS_RB UCSRB
+#define UCS_RC UCSRC
+#define UBR_RL UBRRL
+#define UBR_RH UBRRH
+//UCS_RA REGISTER BITS
+#define MPCM BIT0
+#define U2X BIT1
+#define PE BIT2
+#define DOR BIT3
+#define FE BIT4
+#define UDRE BIT5
+#define TXC BIT6
+#define RXC BIT7
 //UCS_RB REGISTER BITS
+#define TXB8 BIT0
+#define RXB8 BIT1
+#define UCSZ2 BIT2
+#define TXEN BIT3
+#define RXEN BIT4
 #define UDRIE BIT5
 #define TXCIE BIT6
 #define RXCIE BIT7
+//UCS_RC REGISTER BITS
+#define UCPOL BIT0
+#define UCSZ0 BIT1
+#define UCSZ1 BIT2
+#define USBS BIT3
+#define UPM0 BIT4
+#define UPM1 BIT5
+#define UMSEL BIT6
+#define URSEL BIT7
 /************************************************************************/
 /*                           SPI REGISTERS                              */
 /************************************************************************/
