@@ -46,11 +46,6 @@
 #define COMPARE_A 2
 #define COMPARE_B 3
 
-//USART INTERRUPTS TYPES
-#define RX_COMPLETE 0
-#define TX_COMPLETE  1
-#define DATA_REGISTER_EMPTY 2
-
 //FUNCTIONS PROTOTYPES
 void GlobalInterruptEnable(void);
 void GlobalInterruptDisable(void);
@@ -67,9 +62,5 @@ void SPIInterruptDisable(void);
 void TWIInterruptInit(void);
 void TWIInterruptEnable(void);
 void TWIInterruptDisable(void);
-
-void USARTInterruptInit(uint8 USARTIntType);
-void USARTInterruptEnable(uint8 USARTIntType);
-void USARTInterruptDisable(uint8 USARTIntType);
 
 #endif
