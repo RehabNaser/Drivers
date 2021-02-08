@@ -55,10 +55,6 @@ void ExternalInterruptEnable(uint8 ExternalIntNum);
 void ExternalInterruptDisable(uint8 ExternalIntNum);
 void ExternalInterruptMode(uint8 ExternalIntNum,uint8 ExternalIntMode);
 
-void SPIInterruptInit(void);
-void SPIInterruptEnable(void);
-void SPIInterruptDisable(void);
-
 void TWIInterruptInit(void);
 void TWIInterruptEnable(void);
 void TWIInterruptDisable(void);

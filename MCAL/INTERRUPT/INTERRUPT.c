@@ -161,22 +161,6 @@ void ExternalInterruptMode(uint8 ExternalIntNum,uint8 ExternalIntMode)
 	}	
 }
 
-void SPIInterruptInit(void)
-{
-	SPIInterruptEnable();
-	GlobalInterruptEnable();
-}
-
-void SPIInterruptEnable(void)
-{
-	BIT_WRITE(SPC_R,SPIE,BIT_HIGH);	
-}
-
-void SPIInterruptDisable(void)
-{
-	BIT_WRITE(SPC_R,SPIE,BIT_LOW);	
-}
-
 void TWIInterruptInit(void)
 {
 	TWIInterruptEnable();
