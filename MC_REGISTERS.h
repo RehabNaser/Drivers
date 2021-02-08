@@ -294,11 +294,25 @@
 /*                           SPI REGISTERS                              */
 /************************************************************************/
 //SPI REGISTERS
+#define SPDR *((volatile uint8*)(0X2F))
+#define SPSR *((volatile uint8*)(0X2E))
 #define SPCR *((volatile uint8*)(0X2D))
 
-
+#define SPD_R SPDR
+#define SPS_R SPSR
 #define SPC_R SPCR
+//SPS_R REGISTER BITS
+#define SPI2X BIT0
+#define WCOL BIT6
+#define SPIF BIT7
 //SPC_R REGISTER BITS
+#define SPR0 BIT0
+#define SPR1 BIT1
+#define CPHA BIT2
+#define CPOL BIT3
+#define MSTR BIT4
+#define DORD BIT5
+#define SPE BIT6
 #define SPIE BIT7
 /************************************************************************/
 /*                           TWI REGISTERS                              */
