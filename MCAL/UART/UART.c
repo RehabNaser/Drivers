@@ -12,7 +12,7 @@ void UARTInit(uint32 BaudRate)
 	UARTSetStopBitSize(ONE_STOP_BIT);
 	UARTSetParityBit(NO_PARITY);
 	UARTSetDataSize(EIGHT_BITS);
-	UARTSetBaudRate(BaudRate,SINGLE_SPEED);
+	UARTSetBaudRate(BaudRate,UART_SINGLE_SPEED);
 	UARTEnableTX();
 	UARTEnableRX();
 }
@@ -72,10 +72,10 @@ void UARTSetBaudRate(uint32 BaudRate,uint8 AsyncSpeedMode)
 	uint16 UBRRValue;
 	switch(AsyncSpeedMode)
 	{
-		case SINGLE_SPEED:
+		case UART_SINGLE_SPEED:
 			UBRRValue=(uint16)((F_CPU/(16.0*BaudRate))-1);
 			break;
-		case DOUBLE_SPEED:
+		case UART_DOUBLE_SPEED:
 			UBRRValue=(uint16)((F_CPU/(8.0*BaudRate))-1);
 			break;
 		default:
